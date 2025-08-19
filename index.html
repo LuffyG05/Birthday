@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Nachu 💖</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Heart Cursor -->
+  <div class="cursor-heart"></div>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-widget">
+  <div class="music-info">
+    <span id="music-status">♪ Ready</span>
+  </div>
+  <button id="music-btn" aria-label="Toggle Music">▶️</button>
+</div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1 id="typing-text"></h1>
+    <p class="subtitle">Today is all about you, my love 💗</p>
+  </div>
+
+  <!-- Photo Gallery -->
+  <section class="gallery">
+    <h2>📸 Our Beautiful Memories</h2>
+    <div class="photo-grid">
+      <div class="photo polaroid"><img src="https://via.placeholder.com/200" alt=""><p>First trip 💕</p></div>
+      <div class="photo polaroid"><img src="https://via.placeholder.com/200" alt=""><p>Your smile 😍</p></div>
+      <div class="photo polaroid"><img src="https://via.placeholder.com/200" alt=""><p>Laughs together 🎉</p></div>
+    </div>
+  </section>
+  <section class="jokes">
+  <h2> 🤣 Jokes Just for You</h2>
+  <div class="joke-grid">
+    <!-- Joke Cards -->
+    <div class="joke-card" onclick="flipCard(this)">
+      <div class="joke-inner">
+        <div class="joke-front">There was a cow... and an earthquake... what do you get?</div>
+        <div class="joke-back">🥤 Milkshake!</div>
+      </div>
+    </div>
+
+    <div class="joke-card" onclick="flipCard(this)">
+      <div class="joke-inner">
+        <div class="joke-front">A murder happened in a seafood restaurant...</div>
+        <div class="joke-back">🐟 Something fishy.</div>
+      </div>
+    </div>
+
+    <div class="joke-card" onclick="flipCard(this)">
+      <div class="joke-inner">
+        <div class="joke-front">Why do Adam & Eve do math?</div>
+        <div class="joke-back">➗ God told them to multiply.</div>
+      </div>
+    </div>
+
+    <div class="joke-card" onclick="flipCard(this)">
+      <div class="joke-inner">
+        <div class="joke-front">There was a taxi driver who lies a lot... where does he work?</div>
+        <div class="joke-back">🚕 OLA!</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+// Sound setup
+const flipSound = new Audio('https://cdn.pixabay.com/download/audio/2022/03/15/audio_5b72a43b79.mp3'); // free flip sound
+let hasConfettiLaunched = false;
+
+// Flip function with sound and confetti
+function flipCard(card) {
+  card.classList.toggle('flipped');
+  flipSound.currentTime = 0;
+  flipSound.play();
+
+  // Launch confetti on first flip only
+  if (!hasConfettiLaunched) {
+    launchConfetti();
+    hasConfettiLaunched = true;
+  }
+}
+
+// Confetti effect
+function launchConfetti() {
+  const duration = 1 * 1000;
+  const end = Date.now() + duration;
+
+  (function frame() {
+    confetti({
+      particleCount: 7,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0 }
+    });
+    confetti({
+      particleCount: 7,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1 }
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  })();
+}
+</script>
+
+<!-- 🎉 Confetti library (add this before </body>) -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+
+  <!-- Love Notes -->
+  <section class="notes">
+    <h2>💌 Love Notes for You</h2>
+    <div class="card-container">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">You are my sunshine ☀️</div>
+          <div class="flip-card-back">Every day with you feels like a dream.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">Beautiful soul 🌸</div>
+          <div class="flip-card-back">You radiate warmth, joy, and kindness.</div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">Forever & Always 💖</div>
+          <div class="flip-card-back">I'm with you in every heartbeat.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    Made with 💕 for Nachu — Karthik©
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
