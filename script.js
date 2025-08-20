@@ -29,7 +29,7 @@ let musicPlaying = false;
 musicBtn.addEventListener("click", () => {
   if (!musicPlaying) {
     music.play();
-    musicStatus.textContent = "♪ Playing: Sunny Day";
+    musicStatus.textContent = "♪ Playing: for Nachu🤍";
     musicBtn.textContent = "⏸️";
   } else {
     music.pause();
@@ -38,3 +38,4 @@ musicBtn.addEventListener("click", () => {
   }
   musicPlaying = !musicPlaying;
 });
+
